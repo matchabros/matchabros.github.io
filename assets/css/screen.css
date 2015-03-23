@@ -534,7 +534,7 @@ a[href="mailto:chabros.matt@gmail.com"] {
     color: #788AA3;
   }
 }
-@media screen and (max-width: 413px) {
+@media screen and (max-width: 25.813em) {
   /* line 460, ../sass/screen.scss */
   body {
       -webkit-text-size-adjust: none !important;
@@ -628,7 +628,7 @@ a[href="mailto:chabros.matt@gmail.com"] {
     font-size: 1.313rem;
   }
 }
-@media screen and (min-width: 414px) and (max-width: 1000px) {
+@media screen and (min-width: 25.875em) and (max-width: 62.500em) {
   /* line 517, ../sass/screen.scss */
   .about-contact .about-me {
     width: 100% !important;
