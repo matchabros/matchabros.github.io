@@ -7,7 +7,7 @@ $(document).ready(function () {
     $(function () {
     	btn.on('click', function () {
 	        aboutContact.fadeIn(300);
-            $('.about-me p:first').addClass('fadeIn-animation');//Add the animaition class
+            $('.about-me p').addClass('fadeIn-animation');//Add the animaition class
             $('.about-me h1:first').addClass('underline-animation');//Add the animaition class
             $('.about-me a').addClass('social-animation');//Add the animation class
         });

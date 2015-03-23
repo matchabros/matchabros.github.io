@@ -428,6 +428,11 @@ body {
   margin: 1.25em 1.25em;
 }
 
+.important-underscore {
+  color: inherit;
+  border-bottom: 1px solid #ECDCC9;
+}
+
 /* line 389, ../sass/screen.scss */
 .footer-text {
   text-align: center;
