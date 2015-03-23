@@ -403,7 +403,7 @@ body {
 }
 /* line 360, ../sass/screen.scss */
 .about-contact .about-me {
-  width: 50%;
+  width: 80%;
   -webkit-align-self: center;
   -moz-align-self: center;
   -ms-align-self: center;
@@ -634,12 +634,10 @@ a[href="mailto:chabros.matt@gmail.com"] {
     width: 100% !important;
   }
   /* line 519, ../sass/screen.scss */
-  .about-contact .about-me p {
+/*  .about-contact .about-me p {
     margin: 0 1em;
     font-size: 1.25rem;
-  }
-}
-@media screen and (max-height: 480px) {
+  }*/
   .about-contact .about-me p {
     margin: 0 1em;
     font-size: 0.875rem;
