@@ -42,6 +42,10 @@ body {
   display: flex;
 }
 
+body {
+  font-size: 1em;
+}
+
 /* line 162, ../sass/screen.scss */
 .body-background {
   background-color: #ECDCC9;
@@ -533,6 +537,10 @@ a[href="mailto:chabros.matt@gmail.com"] {
 }
 @media screen and (max-width: 413px) {
   /* line 460, ../sass/screen.scss */
+  body {
+      -webkit-text-size-adjust: none !important;
+  }
+
   header {
     width: 100%;
     display: -webkit-box;
