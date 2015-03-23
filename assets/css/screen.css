@@ -642,10 +642,10 @@ a[href="mailto:chabros.matt@gmail.com"] {
 @media screen and (max-height: 480px) {
   .about-contact .about-me p {
     margin: 0 1em;
-    font-size: 0.625rem;
+    font-size: 0.875rem;
   }
   .about-contact .about-me h1 {
-    font-size: 1rem;
+    font-size: 1.313rem;
   }
 }
 /* line 529, ../sass/screen.scss */
