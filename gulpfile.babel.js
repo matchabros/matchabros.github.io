@@ -48,7 +48,7 @@ gulp.task('scss->css', () => {
 gulp.task('default', () => {
   bs.init({
     browser: 'google chrome',
-    server: './public/'
+    server: ''
   });
   gulp.watch(scssPaths.scssAssets + '/**/*.scss', ['scss->css', bs.reload]);
 });
