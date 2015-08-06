@@ -1,0 +1,21 @@
+// Contact links underscore
+
+@mixin underscore($width, $height, $color, $bottom) {
+  &::after {
+    position: absolute;
+    left: 0;
+    bottom: $bottom;
+    content: '';
+    background: $color;
+    width: $width;
+    height: $height;
+  }
+}
+
+// Media-queries mixin
+
+@mixin media-querie($size) {
+  @media only screen and (min-width: $size) {
+    @content;
+  }
+}

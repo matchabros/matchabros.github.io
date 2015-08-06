@@ -1,0 +1,11 @@
+@include media-querie($med-high-res) {
+  .name__border--sides {
+    font-size: 6rem;
+  }
+
+  .header__title--wrapper,
+  .header__contact,
+  .contact--wrapper {
+    font-size: 2.1rem;
+  }
+}

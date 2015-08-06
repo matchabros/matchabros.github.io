@@ -1,0 +1,16 @@
+body {
+  background-color: $body;
+  color: $font-color;
+  font-family: $molengo;
+}
+
+.body--wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+  position: relative;
+}

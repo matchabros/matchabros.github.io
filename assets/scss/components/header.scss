@@ -1,0 +1,18 @@
+header {
+  display: flex;
+  flex-direction: column;
+}
+
+.header__name--wrapper {
+  margin: 0 0 2.5% 0;
+}
+
+.header__title--wrapper {
+  font-size: 1.6rem;
+  margin: 3rem 0 0;
+}
+
+.header__contact {
+  font-size: 1.6rem;
+  margin: 5% 0;  
+}
