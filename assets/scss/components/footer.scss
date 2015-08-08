@@ -1,6 +1,12 @@
 footer {
-  margin-top: 5%;
+  margin-top: 10%;
   text-align: center;
+  animation: fade-in 1s ease both 2s;
+
+  @keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
   
   .footer__name {
     font-size: 1.2rem;

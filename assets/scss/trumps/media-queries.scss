@@ -3,9 +3,26 @@
     font-size: 6rem;
   }
 
+  .header__name--wrapper {
+  	margin-bottom: 2.5%;
+  }
+
+  .header__title--wrapper {
+  	margin-top: 2.5%;
+  }
+
+  .header__contact,
+  .contact--wrapper {
+  	margin-top: 2.5%;
+  }
+
   .header__title--wrapper,
   .header__contact,
   .contact--wrapper {
     font-size: 2.1rem;
+  }
+
+  footer {
+  	margin-top: 5%;
   }
 }

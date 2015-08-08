@@ -5,15 +5,48 @@ header {
 }
 
 .header__name--wrapper {
-  margin: 0 0 2.5% 0;
+  margin: 0 0 10% 0;
+
+  animation: fade-in 1s ease both;
+
+  @keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  .header__name {
+  	padding: 2rem 3rem;
+  	border: .1rem solid $font-color;
+  }
 }
 
 .header__title--wrapper {
-  font-size: 1.6rem;
-  margin: 2.5% 0 0 0;
+  font-size: 2.1rem;
+  margin: 5% 0 0 0;
+  animation: fade-in 1s ease both .5s;
+
+  @keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
 }
 
 .header__contact {
-  font-size: 1.6rem;
-  margin: 1% 0 0 0;  
+  font-size: 2.1rem;
+  margin: 5% 0 0 0; 
+  animation: fade-in 1s ease both 1s;
+
+  @keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  } 
+}
+
+.contact--wrapper {
+  animation: fade-in 1s ease both 1.5s;
+
+  @keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }	
 }
