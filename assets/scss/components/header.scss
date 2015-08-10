@@ -9,10 +9,7 @@ header {
 
   animation: fade-in 1s ease both;
 
-  @keyframes fade-in {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-  }
+ @include fade-in;
 
   .header__name {
   	padding: 2rem 3rem;
@@ -25,10 +22,7 @@ header {
   margin: 1.6rem 0 0 0;
   animation: fade-in 1s ease both .5s;
 
-  @keyframes fade-in {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-  }
+ @include fade-in;
 }
 
 .header__contact {
@@ -36,17 +30,11 @@ header {
   margin: 1.6rem 0 0 0; 
   animation: fade-in 1s ease both 1s;
 
-  @keyframes fade-in {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-  } 
+ @include fade-in; 
 }
 
 .contact--wrapper {
   animation: fade-in 1s ease both 1.5s;
 
-  @keyframes fade-in {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-  }	
+ @include fade-in;	
 }

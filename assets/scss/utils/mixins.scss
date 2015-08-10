@@ -12,6 +12,15 @@
   }
 }
 
+// Fade-in animation
+
+@mixin fade-in() {
+  @keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }  
+}
+
 // Media-queries mixin
 
 @mixin media-querie($size) {
