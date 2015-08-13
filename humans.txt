@@ -1,0 +1,14 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Mat CHabros -- creator -- https://twitter.com/MatChabros
+
+# THANKS
+
+    Jo Chabros
+
+# TECHNOLOGY COLOPHON
+
+    CSS3, HTML5
