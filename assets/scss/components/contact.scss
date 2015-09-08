@@ -8,14 +8,33 @@
 }
 
 .contact__twitter {
-  // position: relative;
+  position: relative;
+  margin: 0 0 0 1.6rem;
   // border-bottom: 0.1rem solid $font-color;
   // @include underscore(20rem, 0.2rem, $font-color, .05rem);
+
+  .contact__twitter--svg {
+    position: absolute;
+    left: -3rem;
+    top: .5rem;
+    fill: $font-color;
+    width: 2.4rem;
+    height: 2.4rem;
+  }
 }
 
 .contact__mail {
-  margin: .5rem 0 0 0;
-  // position: relative;
+  position: relative;
+  margin: 1% 0 0 0;
   // border-bottom: 0.1rem solid $font-color;
   // @include underscore(27rem, 0.2rem, $font-color, .05rem);
+
+  .contact__mail--svg {
+    position: absolute;
+    left: -3rem;
+    top: .5rem;
+    fill: $font-color;
+    width: 2.4rem;
+    height: 2.4rem;
+  }
 }
