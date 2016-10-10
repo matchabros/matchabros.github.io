@@ -36,8 +36,8 @@ gulp.task('scss->css', () => {
   }))
 	.pipe($.minifyCss())
 	.pipe($.rename({
-    suffix: '.min'
-  }))
+  suffix: '.min'
+}))
   .pipe(gulp.dest(distPaths.distCss))
   .pipe($.notify({
     title: 'Stylesheets recompiled',
@@ -48,7 +48,7 @@ gulp.task('scss->css', () => {
 gulp.task('default', () => {
   bs.init({
     browser: 'google chrome',
-    server: ''
+    server: './'
   });
   gulp.watch(scssPaths.scssAssets + '/**/*.scss', ['scss->css', bs.reload]);
 });
