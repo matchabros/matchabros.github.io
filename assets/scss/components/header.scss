@@ -13,7 +13,7 @@ header {
 
   .header__name {
   	padding: 2rem 3rem;
-  	border: .7rem solid $font-color;
+  	border: .7rem solid $border-color;
   }
 }
 
@@ -28,14 +28,6 @@ header {
 
  @include fade-in;
 }
-
-// .header__contact {
-//   font-size: 2.1rem;
-//   margin: 1.6rem 0 0 0; 
-//   animation: fade-in 1s ease both 1s;
-
-//  @include fade-in; 
-// }
 
 .contact--wrapper {
   animation: fade-in 1s ease both 1s;
