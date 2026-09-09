@@ -1,0 +1,224 @@
+/* Mat Chabros — chabros.dev
+   Hand-written. No build step. See DESIGN.md for the spec this implements.
+   Fonts are self-hosted and OFL licensed; see fonts/OFL.txt. */
+
+/* ---------------------------------------------------------------- tokens
+   Every colour on the page is declared here and only here.
+   DESIGN.md section 4 — light palette. */
+
+:root {
+  --bg: #F7F5EF;
+  --rule: #D3D1C7;
+  --ink: #2C2C2A;
+  --body: #5F5E5A;
+  --muted: #6E6D68;
+  --accent: #993C1D;
+  --accent-line: #D85A30;
+
+  --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --sans: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+
+  --inset: 32px;
+
+  /* Lets the browser paint UA surfaces — scrollbar, canvas — to match the
+     active theme instead of defaulting to light. */
+  color-scheme: light dark;
+}
+
+/* DESIGN.md section 4 — dark palette. This block redeclares the seven colour
+   tokens and nothing else. No other rule in this file may branch on theme.
+   --muted is the one token whose two values were not originally identical by
+   design: the light value is darkened so the 12px eyebrow clears WCAG AA. */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1E1E1C;
+    --rule: #444441;
+    --ink: #F1EFE8;
+    --body: #B4B2A9;
+    --muted: #888780;
+    --accent: #5DCAA5;
+    --accent-line: #1D9E75;
+  }
+}
+
+@media (max-width: 600px) {
+  :root {
+    --inset: 20px;
+  }
+}
+
+/* ----------------------------------------------------------------- fonts
+   One weight, 400, one file per family. DESIGN.md section 3. */
+
+@font-face {
+  font-family: "Source Serif 4";
+  src: url("fonts/source-serif-4-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  src: url("fonts/ibm-plex-sans-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ------------------------------------------------------------------ base */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--body);
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Keyboard focus. DESIGN.md section 9 task 3 requires this to use --accent,
+   which is the one sanctioned exception to section 4's "--accent appears
+   exactly once" rule: it is a transient state, never painted at rest.
+   :focus-visible, not :focus, so a mouse click does not draw a ring. */
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* There is no motion on this page. This block is a guard, not a fix: it means
+   any animation or transition added later is silenced for people who ask for
+   reduced motion, rather than that request being honoured only by accident. */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* -------------------------------------------------------------- masthead
+   Full-bleed rule, inset content. DESIGN.md section 5. */
+
+.masthead {
+  padding: 14px var(--inset);
+  border-bottom: 1px solid var(--rule);
+}
+
+.name {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+/* ------------------------------------------------------------------ main */
+
+main {
+  padding: 48px var(--inset) 36px;
+}
+
+.eyebrow {
+  margin: 0 0 16px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.4;
+  letter-spacing: 0.04em;
+}
+
+h1 {
+  max-width: 470px;
+  margin: 0 0 20px;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 5vw, 1.9rem);
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+main p:not(.eyebrow) {
+  max-width: 450px;
+  margin: 0 0 14px;
+}
+
+main p:last-child {
+  margin-bottom: 0;
+}
+
+/* --------------------------------------------------------------- contact
+   The rule here is structural: it separates who this is from how to reach
+   them. It and the masthead are the only two dividers on the page. */
+
+.contact {
+  padding: 28px var(--inset) 48px;
+  border-top: 1px solid var(--rule);
+}
+
+.touch {
+  margin: 0 0 20px;
+  font-size: 17px;
+  line-height: 1.4;
+}
+
+.touch a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: var(--accent-line);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.touch a:hover {
+  text-decoration-color: var(--accent);
+}
+
+.social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--body);
+  font-size: 14px;
+  line-height: 1.4;
+  text-decoration: none;
+}
+
+/* The underline sits on the label, not the anchor, so it stops at the text
+   instead of running under the icon and the gap. currentColor keeps it at
+   --body: these links must be distinguishable from body text by something
+   other than colour. */
+.social a span {
+  text-decoration: underline;
+  text-decoration-color: currentColor;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.social svg {
+  flex: none;
+}
