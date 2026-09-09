@@ -10,7 +10,15 @@
 # to work: open index.html directly, or serve the folder with
 # `python3 -m http.server`. Both give you the real site.
 
+# Note that Jekyll's `exclude` REPLACES its default list rather than extending
+# it. CNAME is listed here because GitHub's default list had been keeping it out
+# of the built site; introducing this file removed that default and started
+# publishing chabros.dev/CNAME. Pages reads the custom domain from the
+# repository, not from the built output, so excluding it here does not affect
+# the domain.
+
 exclude:
+  - CNAME
   - CLAUDE.md
   - DESIGN.md
   - MIGRATION.md
