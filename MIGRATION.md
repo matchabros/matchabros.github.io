@@ -418,3 +418,30 @@ no `<strong>` or `<b>` may appear in the markup, because with no 500 or 700 face
 self-hosted the browser would synthesize fake bold. The section 7 page-weight
 budget was tightened from 100 KB to 60 KB on the strength of the measurements
 recorded there.
+
+**2026-09-09 — `_config.yml` added to keep the docs off the website.** GitHub
+Pages runs Jekyll, which copies any markdown file lacking YAML front matter
+straight through to the built site. Verified against the live site: `/README.md`
+returns 200 as `text/markdown` and `/LICENSE.txt` returns 200, while `/CNAME` and
+`/.gitignore` 404 — Jekyll skips dotfiles and Pages treats `CNAME` specially.
+Left alone, the cutover would have served `chabros.dev/CLAUDE.md`, `/DESIGN.md`,
+`/MIGRATION.md` and the `baseline/` screenshots.
+
+This was never a disclosure: the repository is public (`"private": false`), so
+the same content is already readable on GitHub, and the Search Console token and
+`UA-` id recorded in this file were both in the old page's HTML source anyway. It
+is a tidiness fix — the spec should not be served beside the page it describes.
+
+`CLAUDE.md`'s target architecture said "no config files". That rule is amended
+rather than quietly broken: exactly one config file is permitted, `_config.yml`,
+restricted to an `exclude:` list.
+
+`README.md`, `LICENSE.txt` and `fonts/OFL.txt` stay served. The first two are
+already live URLs, and the OFL wants its notices reachable alongside the fonts.
+
+**Verify after the cutover** — Jekyll only runs on Pages, so this cannot be
+checked locally without installing Ruby:
+
+    curl -o /dev/null -w '%{http_code}\n' https://chabros.dev/DESIGN.md   # expect 404
+    curl -o /dev/null -w '%{http_code}\n' https://chabros.dev/README.md   # expect 200
+    curl -o /dev/null -w '%{http_code}\n' https://chabros.dev/            # expect 200
