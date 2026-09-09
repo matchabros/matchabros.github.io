@@ -150,8 +150,8 @@ in with real values.
 
 3. Tag the current commit `pre-migration` so the old state is retrievable by name.
    → annotated tag on `0a8df6e`, which is also `origin/master` and byte-identical
-   to what production serves. ⚠️ **Local only. Push it before phase 4 begins
-   deleting files**, or the restore point exists on one laptop.
+   to what production serves. Pushed to `origin` on 2026-09-09, so the restore
+   point survives the loss of this machine.
 
 _Done when:_ the tag exists and the screenshots are committed. ✓
 
@@ -257,15 +257,17 @@ No inbound links are known to any of them.
 2. **"Enforce HTTPS" is still off** and needs the GitHub web UI (Settings →
    Pages → Enforce HTTPS). No `gh` CLI is installed, so it cannot be toggled from
    here.
-3. **Nothing is committed or pushed.** The owner asked on 2026-09-08 that nothing
-   be pushed. Phase 3 cannot complete without it.
+3. ~~Nothing is committed or pushed.~~ **Resolved 2026-09-09.** Committed as
+   four separately revertable changes and pushed to
+   `origin/feature/website_update`, along with the `pre-migration` tag. `master`
+   is deliberately untouched: merging it is the production deploy, and on a user
+   site that is the cutover itself.
 
-**Trap found while checking this — read before committing.** The *committed*
-`.gitignore` contains `*.css`, which ignores `styles.css`. The working tree has
-an uncommitted edit removing that line. **That edit is load-bearing:** commit
-`styles.css` without it and the stylesheet is silently never tracked, and the
-deployed site ships with no CSS at all. The `.gitignore` change must land in the
-same commit as `styles.css`, or before it.
+**Trap found while checking this, now defused.** The old `.gitignore` contained
+`*.css`, which would have silently ignored `styles.css` and deployed the site
+with no stylesheet. The line was dropped in `f3ea845`, the same commit that adds
+`styles.css`. A fresh clone of the branch was verified to contain a 5,334 B
+`styles.css`, two woff2 files and zero build artefacts, with no install step.
 
 ## Phase 4 — delete what the new page replaces
 
@@ -293,8 +295,9 @@ _Done when:_ `git status` is clean, the repo contains only the files listed in t
 target architecture in `CLAUDE.md`, and the site still serves correctly from a
 fresh clone with no install step.
 
-**Status: done in the working tree, 2026-09-09, not yet committed.** Brought
-forward at the owner's request, ahead of the phase 3 deploy rather than after it.
+**Status: done and committed, 2026-09-09** — `cee1867` (toolchain) and
+`1217cbf` (dropped public files). Brought forward at the owner's request, ahead
+of the phase 3 deploy rather than after it.
 Safe to do in that order because this is a feature branch: `master` still serves
 the old site untouched, and `pre-migration` still tags it.
 
