@@ -21,5 +21,3 @@ exclude:
   - CNAME
   - CLAUDE.md
   - DESIGN.md
-  - MIGRATION.md
-  - baseline/

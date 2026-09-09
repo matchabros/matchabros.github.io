@@ -123,6 +123,29 @@ Stop and ask before:
 - Touching DNS, hosting configuration, or the deploy pipeline.
 - Removing anything from the old build that you are not certain is dead.
 
+## Gotchas
+
+Two things that have already caused a wrong conclusion in this repo. Both are
+cheap to avoid and expensive to rediscover.
+
+- **Screenshotting below 500px lies.** Headless Chrome on macOS clamps the layout
+  viewport to a minimum of 500 CSS pixels. `--window-size=375,812` renders the
+  page at 500px wide and then crops the image to 375, which is visually
+  indistinguishable from horizontal overflow — it will make a perfectly correct
+  page look broken. Use the DevTools Protocol with
+  `Emulation.setDeviceMetricsOverride` instead. This produced a false "the mobile
+  site is broken" finding during the migration.
+- **`exclude:` in `_config.yml` replaces Jekyll's default list, it does not
+  extend it.** Adding entries silently un-hides whatever the defaults were
+  hiding. Adding the file at all started publishing `chabros.dev/CNAME`, which
+  had 404'd for years. If you edit that list, re-check what became reachable.
+
+Related: a keyboard focus style cannot be verified with a programmatic
+`element.focus()`. Chrome only matches `:focus-visible` after real keyboard
+interaction, and the browser's own focus ring inherits `currentColor`, so a
+programmatic check can appear to pass while the rule under test does nothing.
+Dispatch an actual Tab key event.
+
 ## Scope
 
 This is a short page with eleven lines of text on it. The most common failure mode
