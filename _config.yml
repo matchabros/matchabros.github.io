@@ -1,0 +1,17 @@
+# GitHub Pages runs Jekyll over this repository whether or not this file exists.
+# This file exists for exactly one reason: to stop the project's own documentation
+# from being published as part of the website.
+#
+# Jekyll copies any file without YAML front matter through to the built site
+# verbatim, so without this, https://chabros.dev/DESIGN.md returns 200 and the
+# spec is served alongside the page it describes.
+#
+# This configures the host, not a build. Nothing here needs to run for the site
+# to work: open index.html directly, or serve the folder with
+# `python3 -m http.server`. Both give you the real site.
+
+exclude:
+  - CLAUDE.md
+  - DESIGN.md
+  - MIGRATION.md
+  - baseline/
