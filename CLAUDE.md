@@ -47,14 +47,19 @@ fonts/          two self-hosted woff2 files, weight 400, one per family,
                 plus OFL.txt — the SIL Open Font Licence requires the licence
                 and copyright notices to travel with redistributed fonts
 CNAME           binds chabros.dev to GitHub Pages
+_config.yml     stops Jekyll publishing this repo's docs as part of the site
 README.md       repo readme
 LICENSE.txt     licence
 DESIGN.md       the visual spec
 CLAUDE.md       this file
 ```
 
-Nothing else. No `package.json`, no `node_modules`, no lockfile, no config files,
-no `src/` and `dist/` split. No `robots.txt` or `humans.txt` — both were dropped
+Nothing else. No `package.json`, no `node_modules`, no lockfile, no `src/` and
+`dist/` split. One config file is allowed and only one: `_config.yml`. It carries
+no build configuration — it exists solely so GitHub Pages stops copying
+`CLAUDE.md`, `DESIGN.md`, `MIGRATION.md` and `baseline/` into the served site.
+Anything beyond an `exclude:` list does not belong in it, and no second config
+file belongs in the repo at all. No `robots.txt` or `humans.txt` — both were dropped
 during the migration — and no `favicon.ico`, which is a deliberate choice rather
 than an omission; see `MIGRATION.md` for all three. The files in the repo are the
 files the browser gets.
@@ -68,7 +73,9 @@ domain and the site falls back to `matchabros.github.io`. It contains one line,
 These are not preferences. Breaking one means the change gets reverted.
 
 - **No build step.** If a change requires running a command before the site works,
-  it is the wrong change.
+  it is the wrong change. `_config.yml` does not breach this: Pages runs Jekyll
+  either way, and the site is complete without anything being run — open
+  `index.html`, or serve the folder.
 - **No npm.** Do not add `package.json`, do not install dependencies, do not
   suggest a bundler, a task runner, or a dev server as a dependency.
 - **No CSS preprocessor.** `styles.css` is plain CSS. Custom properties and
